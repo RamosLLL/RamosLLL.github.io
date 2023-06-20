@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programa HTML5 con Inicio de Sesión</title>
+    <style>
+        /* Estilos CSS para el menú, el contenido y el formulario */
+       
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            background-image:url(fondo3.jpg);
+            background-size:cover;
+            background-repeat:no-repeat;
+            cursor: url(img/cursor4.png), auto;
+            
+            
+            
+        }
+       
+        #header {
+            background-color: #4e4a4a;
+            padding: 10px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        #header h1 {
+            margin: 0;
+            background: url(letra.jpg);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 60px; /* Tamaño de fuente en píxeles */
+
+
+
+        }
+
+        #login-form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #login-form h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+
+
+         h1 {
+            margin: 0;
+            background:  url(letra7.jpg);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 5em; /* Tamaño de fuente en píxeles */
+        }
+
+      
+        h2 {
+            margin: 0;
+            background: url(letra2.jpg);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3em; /* Tamaño de fuente en píxeles */
+        }
+
+    
+       
+        p {
+           
+ font-size: 25px;
+  font-family: 'Intro', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  /* Warning: no fallback */
+  background: -webkit-linear-gradient(-86deg, #EEF85B 5%, #7AEC8D 53%, #09E5C3 91%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  color: #232d2d;
+     }
+
+     h6 {
+ font-size: 25px;
+ font-family: 'Intro', sans-serif;
+ font-weight: 800;
+ text-transform: uppercase;
+ /* Warning: no fallback */
+ 
+ background: -webkit-linear-gradient(-86deg, #5b0ac5 5%, #c01fa5 53%, #33ff00 91%);
+ -webkit-background-clip: text;
+ -webkit-text-stroke: 4px transparent;
+ color: #232d2d;
+    }
+   
+   
+.enlace-estilizado {
+  color: blue;
+  text-decoration: underline;
+}
+
+
+
+
+        #login-form input[type="text"],
+        #login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+        }
+
+        #login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1d1b1b;
+            color: #0add14;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #login-form button:hover {
+            background-color: #212421;
+        }
+
+        .error-message {
+            color: #504747;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #content {
+            margin: 20px;
+            display: none;
+        }
+
+        #menu {
+            background-color:black;
+background-image:
+radial-gradient(red,rgba(255,255,255,.2)2px, transparent 40px),
+radial-gradient(red,rgba(255,255,255,.15)1px, transparent 30px),
+radial-gradient(red,rgba(255,255,255,.1)2px, transparent 40px),
+radial-gradient(red,rgba(255,255,255,.4),rgba(255,255,255,.1)2px, transparent 30px);
+background-size:550px 550px,350px 350px, 250px 250px, 150px 150px;
+background-position:0 0,40px 60px, 130px 270px, 70px 100px;
+            padding: 10px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #menu a {
+            
+            color: #00c3ff;
+            text-decoration: none;
+            margin-right: 10px;
+
+
+        }
+        .contenido-seccion {
+            display: none;
+        }
+    </style>
+    <script>
+        // Función para cambiar el contenido al hacer clic en un enlace del menú
+        function cambiarContenido(id) {
+            // Ocultar todos los elementos de contenido
+            var secciones = document.getElementsByClassName('contenido-seccion');
+            for (var i = 0; i < secciones.length; i++) {
+                secciones[i].style.display = 'none';
+            }
+            // Mostrar el contenido de la sección seleccionada
+            var seccion = document.getElementById(id);
+            seccion.style.display = 'block';
+        }
+
+        function validarCredenciales() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === 'raulramos@gmail.com' && password === '1221') {
+                // Credenciales válidas, mostrar el contenido del programa
+                var contenidoPrograma = document.getElementById('content');
+                contenidoPrograma.style.display = 'block';
+
+                // Ocultar el formulario de inicio de sesión
+                var loginForm = document.getElementById('login-form');
+                loginForm.style.display = 'none';
+            } else {
+                // Mostrar mensaje de error
+                var errorMessage = document.getElementById('error-message');
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="header">
+        <h1>Proyecto css3 ¿Que es el autismo?</h1>
+    </div>
+
+   
+
+
+
+
+
+
+
+
+
+    <div id="login-form">
+        <h2>Iniciar Sesión</h2>
+        <form>
+            <input type="text" id="username" placeholder="Usuario">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button type="button" onclick="validarCredenciales()">Iniciar Sesión</button>
+            <p class="error-message" id="error-message" style="display: none;">Credenciales inválidas</p>
+        </form>
+    </div>
+
+
+
+
+    <div id="content">
+        <!-- Menú de navegación -->
+        <div id="menu">
+            <a href="#" onclick="cambiarContenido('contenido-inicio')">Inicio</a>
+            <a href="#" onclick="cambiarContenido('contenido-informacion')">Información</a>
+            <a href="#" onclick="cambiarContenido('contenido-caracteristicas')">Características</a>
+            <a href="#" onclick="cambiarContenido('contenido-enlaces')">Tipos</a>
+            <a href="#" onclick="cambiarContenido('contenido-logo')">se cura ?</a>
+            <a href="#" onclick="cambiarContenido('contenido-cuidados')">Cuidados</a>
+            <a href="#" onclick="cambiarContenido('contenido-amenazas')">Amenazas</a>
+            <a href="#" onclick="cambiarContenido('contenido-clasificacion')">Clasificación</a>
+            <a href="#" onclick="cambiarContenido('contenido-grado-riesgo')">Referencias</a>
+            <a href="#" onclick="cambiarContenido('contenido-galeria')">Galería</a>
+            <a href="#" onclick="cambiarContenido('contenido-videos')">Videos</a>
+            <a href="#" onclick="cambiarContenido('contenido-contacto')">contacto</a>
+        </div>
+
+<P>Creado Por Raul Ramos</P>
+
+        <!-- Contenido de las páginas -->
+        <div id="contenido-inicio" class="contenido-seccion">
+            <h1>Que es el autismo?</h1>
+            <h6>El autismo es un trastorno del desarrollo neurológico que afecta principalmente la comunicación y la interacción social.
+                 Se caracteriza por patrones de comportamiento repetitivos, dificultades en la comunicación verbal y no verbal,
+                 así como por intereses y actividades restringidos y repetitivos.</h6>
+               <br>
+               <br>
+               <p><strong>El autismo se considera un espectro, lo que significa que los síntomas y la gravedad del trastorno pueden variar ampliamente de una persona a otra. </strong>                                     </p>
+               <br>
+               <br>
+               <p><strong>Las personas con autismo pueden tener dificultades para entender y responder a las señales sociales,
+                 como el contacto visual, las expresiones faciales y el lenguaje corporal. También pueden tener dificultades para establecer y mantener relaciones sociales,
+                 lo que puede llevar a la sensación de aislamiento y dificultades para formar amistades. </strong></p>
+                 <br>
+                 <br>
+                 <p><strong> Además de las dificultades en la comunicación y la interacción
+                     social, el autismo puede implicar patrones de comportamiento repetitivos o restrictivos.
+                      Estos pueden manifestarse en intereses obsesivos en temas específicos, adhesión a rutinas y rituales establecidos,
+                     movimientos repetitivos del cuerpo o sensibilidades sensoriales.</strong></p>
+
+                           <center><img src="4.jpg"></center>
+        </div>
+
+
+        <div id="contenido-informacion" class="contenido-seccion">
+            <h1>Como se diagnóstica</h1>
+            <h6> 1-  Diagnóstico: </h6> <p><strong>El diagnóstico del autismo generalmente se realiza en la infancia,
+                 aunque en algunos casos puede retrasarse hasta la edad escolar.
+                  Los médicos y especialistas en salud mental utilizan criterios específicos establecidos en manuales de diagnóstico, como el DSM-5 (Manual Diagnóstico y Estadístico de los Trastornos Mentales, quinta edición) para evaluar el comportamiento y los síntomas de una persona y determinar
+                 si cumple con los criterios para el trastorno del espectro autista (TEA).</strong></p>
+                 <br>
+                 <h6> 2- Trastorno del Espectro Autista (TEA):</h6>
+                   
+                    <p><strong> El autismo se considera un espectro porque las personas pueden experimentar una amplia gama de síntomas y presentar distintos niveles de gravedad.
+                     Dentro del espectro autista, se incluyen diagnósticos como el trastorno autista, el síndrome de Asperger y el trastorno generalizado del desarrollo no especificado (PDD-NOS, por sus siglas en inglés).</strong></p>
+                     <br>
+                     <h6>3- Características y síntomas:</h6>
+                       
+                     <p><strong>Además de las dificultades en la comunicación y la interacción social,
+                         las personas con autismo pueden mostrar comportamientos repetitivos o restrictivos, como balanceo del cuerpo, movimientos de manos o fijaciones obsesivas en objetos o temas específicos. También pueden presentar sensibilidades sensoriales,
+                         como hipersensibilidad o hiposensibilidad a estímulos auditivos, visuales o táctiles.</strong></p>   
+                         <br>
+                         <h6>4- Fortalezas y habilidades:</h6>
+                       
+                         <p><strong>Aunque el autismo presenta desafíos,
+                             también se asocia con habilidades y fortalezas particulares.
+                              Muchas personas con autismo tienen habilidades excepcionales en áreas como el arte,
+                               la música, las matemáticas, la memoria o el pensamiento visual. Aprovechar y desarrollar estas fortalezas puede ser beneficioso para su desarrollo y bienestar.</strong></p>  
+                         <br>
+                        <h6>5- Apoyo y tratamiento:</h6>
+                           
+                        <p><strong>  El apoyo temprano y adecuado es fundamental para mejorar la calidad de vida de las personas con autismo.
+                             Esto puede incluir terapias conductuales y educativas, terapia ocupacional, terapia del habla y lenguaje,
+                              así como adaptaciones y apoyos individualizados en entornos educativos y laborales.
+                             Los enfoques de intervención pueden variar según las necesidades individuales de cada persona.</strong></p>
+                             <br>
+                            <h6>6- Inclusión y conciencia:</h6>
+                               
+                            <p><strong> La conciencia y la aceptación del autismo son fundamentales para crear sociedades más inclusivas.
+                                 La inclusión implica garantizar el acceso igualitario a la educación, el empleo, la atención médica y otros servicios para las personas con autismo.
+                                  Promover la comprensión y eliminar los estigmas en torno al autismo es esencial para construir una sociedad más inclusiva y brindar oportunidades iguales para todos.</strong></p>
+
+        </div>
+        <div id="contenido-caracteristicas" class="contenido-seccion">
+            <h1>Características</h1>
+
+
+ <h6>El autismo es un trastorno del neurodesarrollo que afecta la comunicación,
+     la interacción social y el comportamiento. Aunque el autismo puede variar significativamente de una persona a otra,
+     existen algunas características comunes que suelen estar presentes.
+     <br>
+     <br>
+     Aquí tienes algunas de ellas:</h6>
+     <br>
+     <br>
+     <br>
+     <br>
+     <p><strong>                                                              
+      <h6>1- Dificultades en la comunicación:</h6>
+      <p><strong> Las personas con autismo pueden tener dificultades para desarrollar el lenguaje verbal y no verbal.
+       Pueden tener retrasos en el habla o dificultades para mantener una conversación,
+       entender el lenguaje figurativo o seguir instrucciones complejas.
+     </strong></p>
+    <h6> 2- Dificultades en la interacción social:<h6>
+        <p><strong>  Las personas con autismo pueden tener dificultades para establecer y mantener relaciones sociales. Pueden tener dificultad para comprender las normas sociales, expresar emociones o mostrar empatía hacia los demás.
+      También pueden tener dificultades para establecer contacto visual o para interpretar las señales sociales y emocionales de los demás.
+     </strong></p>
+     <h6> 3- Patrones de comportamiento repetitivos:
+      <p><strong> Las personas con autismo suelen mostrar comportamientos repetitivos o estereotipados. Esto puede incluir movimientos repetitivos del cuerpo (por ejemplo, balancearse o agitar las manos),
+       intereses o actividades restringidas y repetitivas, y resistencia al cambio o a las rutinas interrumpidas.
+     </strong></p>
+  <h6>4-  Sensibilidad sensorial:</h6>
+   <p><strong> Muchas personas con autismo son sensibles a los estímulos sensoriales,
+    como los sonidos, las luces brillantes o las texturas. Pueden ser hipersensibles o hiposensibles a estas sensaciones,
+     lo que puede afectar su experiencia y comportamiento en diferentes entornos.
+</strong></p>
+<h6>5- Intereses o habilidades específicas:<h6>
+<p><strong>Algunas personas con autismo tienen intereses o habilidades especiales en áreas específicas,
+ como la música, las matemáticas, la informática o el arte.
+ Pueden dedicar mucho tiempo y atención a estas áreas de interés y tener un conocimiento detallado en ellas.
+</strong></p>
+ <h6>
+    Es importante destacar que el espectro del autismo es amplio y que cada persona con autismo es única. Algunas personas pueden presentar todas estas características, mientras que otras pueden tener algunas de ellas de manera más pronunciada o pueden tener otras características adicionales. Además,
+     estas características pueden variar en intensidad a lo largo del tiempo y en diferentes situaciones.
+ </h6>
+        </div>
+        <div id="contenido-enlaces" class="contenido-seccion">
+            <h1>niveles/tipos del espectro autista</h1>
+
+
+            <h6>El término "espectro del autismo" se utiliza para describir la amplia gama de características y niveles de gravedad que pueden presentarse en el autismo. A continuación,
+                 se mencionan algunos de los principales tipos de autismo que se suelen reconocer:</h6>
+                 <br>
+                 
+                  <h6>1- Trastorno del espectro autista (TEA):</h6>
+                  <p><strong>Es el término general utilizado para describir el conjunto de trastornos del autismo.
+                   Incluye diferentes niveles de gravedad y combinaciones de síntomas.
+                 </strong></p>
+                 <p><strong>
+                <h6> 2-  Autismo de alto funcionamiento:</h6>  <p><strong>También conocido como autismo de nivel 1 en la clasificación del DSM-5 (Manual Diagnóstico y Estadístico de los Trastornos Mentales),
+                  se refiere a personas que tienen síntomas de autismo, pero con un nivel de funcionamiento intelectual y de lenguaje relativamente alto.
+                 </strong></p>
+                <h6>3-  Síndrome de Asperger: </h6>
+                <p><strong></strong>Aunque anteriormente se consideraba un diagnóstico separado,
+                 en la actualidad se incluye dentro del espectro del autismo.
+                  Las personas con síndrome de Asperger generalmente tienen habilidades lingüísticas normales o superiores a la media,
+                   pero pueden tener dificultades en la interacción social y patrones de comportamiento repetitivos.
+                </strong></p>
+               
+                  <h6>4- Trastorno Desintegrativo Infantil:</h6>
+                  <p><strong></strong> Es una forma rara de autismo en la que los niños desarrollan habilidades sociales y de comunicación normalmente durante los primeros años de vida, pero luego sufren una pérdida significativa de esas habilidades.
+               
+                
+                  <h6>5- Trastorno generalizado del desarrollo no especificado (PDD-NOS, por sus siglas en inglés):<h6>
+                  <p><strong> Se utiliza para describir a las personas que tienen características del autismo pero no cumplen con los criterios específicos para otros trastornos dentro del espectro del autismo.
+                </strong></p>
+               
+                <h6> Cabe mencionar que estos términos se basaban en la clasificación anterior del DSM-IV y pueden variar en la terminología actualizada del DSM-5. Además, es importante tener en cuenta que el diagnóstico y la clasificación del autismo pueden ser complejos,
+                     y se recomienda consultar a profesionales de la salud especializados para obtener una evaluación precisa y un plan de tratamiento adecuado.</h6>
+
+</div>
+
+
+
+        <div id="contenido-logo" class="contenido-seccion">
+            <h1>tiene cura ?</h1>
+            <h6>Actualmente, no existe una cura conocida para el autismo. El autismo es un trastorno del neurodesarrollo que afecta la forma en que una persona procesa la información y se relaciona con el mundo que le rodea.
+                 Es importante entender que el autismo no es una enfermedad que se pueda curar,
+                  sino que es una parte integral de la identidad de una persona.</h6>
+                  <br>
+                  <br>
+                  <h6>Sin embargo, existen intervenciones y terapias que pueden ayudar a las personas con autismo a desarrollar habilidades y mejorar su calidad de vida.
+                     Algunas de las opciones de tratamiento y apoyo incluyen:</h6>
+                
+                  
+                   <h6>1- Terapia conductual:</h6>
+                   <p><strong> La terapia conductual, como la terapia ABA (Análisis Conductual Aplicado), se enfoca en modificar y enseñar conductas específicas,
+                    como habilidades sociales, comunicación, y reducir comportamientos problemáticos.
+                  </strong></p>
+                  
+                   <h6> 2- Terapia del habla y del lenguaje:</h6>
+                    <p><strong>Puede ayudar a mejorar las habilidades de comunicación verbal y no verbal,
+                     así como a desarrollar el lenguaje expresivo y comprensivo.
+                  </strong></p>
+                
+                  
+                   <h6> 3- Terapia ocupacional:</h6>
+                    <p><strong> Se centra en mejorar las habilidades motoras finas,
+                     la coordinación y las habilidades para la vida diaria, como la alimentación, el vestirse y la higiene personal.
+                  </strong></p>
+                  
+                 
+                  <h6> 4- Apoyo educativo: </h6>
+                    <p><strong>Las personas con autismo pueden beneficiarse de programas educativos adaptados a sus necesidades individuales,
+                     como la educación especial o programas inclusivos con apoyo adicional.
+                  </strong></p>
+                
+                  
+                   <h6> 5- Apoyo familiar:</h6>
+                    <p><strong> Brindar a las familias recursos,
+                     orientación y apoyo emocional puede ser fundamental para el bienestar de la persona con autismo y su entorno.
+                  </strong></p>
+                 
+                  <h6>
+                    Es importante destacar que el objetivo del tratamiento y las intervenciones no es "curar" el autismo, sino ayudar a las personas a desarrollar sus habilidades, adaptarse y alcanzar su máximo potencial.
+                     El enfoque principal debería ser mejorar la calidad de vida y promover la inclusión y el bienestar de las personas con autismo.
+                  </h6>
+
+
+
+        </div>
+
+        <div id="contenido-cuidados" class="contenido-seccion">
+            <h1>Cuidados</h1>
+            <h6>Como se cuida a una persona autista?</h6>
+            
+           <h6> Educación y comprensión:</h6>
+              <p><strong> Aprende sobre el autismo y sus características específicas para comprender mejor las necesidades y desafíos de la persona con autismo.
+                 Cuanto más aprendas, mejor podrás adaptar el entorno y las interacciones para brindar un apoyo adecuado.
+            </strong>
+            </p>
+            
+            <h6>Establece rutinas y estructura:</h6>
+                
+                <p><strong>
+                    Las personas con autismo a menudo se benefician de una rutina estructurada y predecible.
+                     Intenta mantener una programación regular para actividades diarias,
+                     proporcionando una sensación de seguridad y estabilidad.
+            </strong></p>
+            
+<h6>Comunicación clara y simple:</h6>
+    
+    <p><strong>Utiliza un lenguaje claro y simple al comunicarte con la persona con autismo.
+     Asegúrate de ser directo y evitar el uso de metáforas o lenguaje figurado. Puedes utilizar apoyos visuales como imágenes o calendarios visuales para facilitar la comprensión.
+    </strong>
+    </p>
+    
+    <h6>Fomenta la comunicación:</h6>   
+      <p><strong>Si la persona tiene dificultades para comunicarse verbalmente, es importante explorar otras formas de comunicación,
+         como el uso de imágenes, sistemas de comunicación aumentativa y alternativa (CAA) o dispositivos de comunicación asistida.
+    </strong></p>
+   
+    <h6>Evita sobrecargas sensoriales:</h6>
+        
+        <p><strong>
+            Las personas con autismo pueden ser sensibles a estímulos sensoriales, como luces brillantes, ruidos fuertes o texturas. Procura crear un entorno tranquilo y libre de distracciones excesivas.
+             Si conoces las sensibilidades específicas de la persona, intenta evitar o mitigar los desencadenantes sensoriales.
+        </strong>
+    </p>
+    
+    <h6>Fomenta la interacción social: </h6>
+        
+        <p><strong>
+            Aunque las personas con autismo pueden tener dificultades en la interacción social,
+             es importante fomentar oportunidades para que se relacionen con los demás. Apoya las habilidades sociales,
+             como el juego en grupo, el contacto visual y el desarrollo de habilidades de conversación.
+        </strong>
+    </p>
+   
+    <h6>Busca apoyo profesional:</h6>
+        
+       <p> <strong>
+            Trabaja con profesionales de la salud, terapeutas ocupacionales,
+             terapeutas del habla, educadores especializados u otros especialistas en autismo para obtener orientación específica y adaptada a las necesidades individuales de la persona.
+        </strong>
+    </p>
+
+<h6>
+    Recuerda que cada persona con autismo es única, por lo que es importante adaptar el cuidado a sus necesidades individuales y respetar sus preferencias.
+     Escucha y observa atentamente para comprender cómo brindar el mejor apoyo y crear un entorno inclusivo y enriquecedor para su bienestar.
+</h6>
+  </div>
+
+        <div id="contenido-amenazas" class="contenido-seccion">
+            <h1>representan amenazas?</h1>
+            <h6>El autismo en sí mismo no representa una amenaza. Sin embargo, las personas con autismo pueden enfrentar diversos desafíos y dificultades en la sociedad.
+                Algunas de las amenazas o problemas a los que pueden estar expuestas incluyen:</h6>
+                <br>
+                <h6>Estigma y discriminación:</h6>
+                    <p><strong>
+                     Las personas con autismo a menudo enfrentan estigmatización y discriminación debido a la falta de comprensión y conciencia sobre el trastorno.
+                      Pueden ser objeto de prejuicios, burlas, exclusión social o discriminación en el ámbito educativo, laboral y comunitario.
+                    </strong>
+                </p>
+
+                     <p><strong>
+                        Es importante tener en cuenta que el autismo abarca un amplio espectro y cada individuo autista es único, con diferentes fortalezas y desafíos. Algunas personas con autismo pueden tener dificultades para comunicarse                   verbalmente o para comprender las señales sociales, pero esto no significa que representen una amenaza. </strong>
+                </p>
+
+<p><strong>La mayoría de las personas con autismo pueden llevar vidas plenas y significativas cuando se les brinda el apoyo adecuado y se les da la oportunidad de desarrollar sus habilidades. La inclusión y el respeto hacia las personas con autismo son fundamentales para garantizar que puedan participar plenamente en la sociedad </strong>
+                </p>
+
+<p><strong>Es importante desafiar los estereotipos negativos y las ideas erróneas sobre el autismo y en su lugar, promover la comprensión, la aceptación y el apoyo a las personas con autismo</strong>
+                </p>
+<br>
+<p>nota aclarativa</p>
+
+ <p><strong>"Las personas autistas siempre van a actuar por reflejo, o van a actuar como ellos crean que está bien. Ellos no pueden distinguir entre lo que es bueno o malo, y mucha gente 'tonta' nunca va a entender eso. Como la gente que dice 'Está enfermito', y no, no lo está. Pero parece que el cerebro de esa gente solo puede procesar un 'hola'. Hasta una persona autista es más inteligente que esas personas, y no lo digo para ofender a los autistas, lo digo para ofender a la gente que no entiende qué es el autismo y parece que su nivel de razonamiento es de un mono, porque cuando les dices 'tiene autismo', te dicen 'está enfermito'. La verdad, hasta dan ganas de soltarles un golpe con tremendas tonterías que dicen o llegan a decir. Hay que ser más inclusivos con las personas autistas y dar a conocer sobre este tipo de temas."
+<br>
+Muchas gracias por leer by:Raul Ramos Llanos</strong>  </p>
+
+
+        </div>
+        <div id="contenido-clasificacion" class="contenido-seccion">
+            <h1>Clasificación</h1>
+            <h6>El autismo se clasifica en 3 nivales que son los siguientes .</h6>
+<br>
+ <h6> Trastorno del Espectro Autista Nivel 1 (TEA 1):</h6>
+  
+ <p><strong> También conocido como autismo de alto funcionamiento. Las personas con TEA 1 tienen dificultades sociales y de comunicación, pero pueden funcionar de manera independiente en su vida diaria. Pueden necesitar apoyo en situaciones sociales y pueden presentar intereses restringidos o repetitivos. </strong></p>
+
+
+<h6> Trastorno del Espectro Autista Nivel 2 (TEA 2):</h6>
+
+ <p><strong>Las personas con TEA 2 tienen dificultades más significativas en la comunicación y en las interacciones sociales. Pueden mostrar patrones de comportamiento repetitivo y pueden requerir más apoyo en su vida diaria. </strong>
+</p>     
+
+
+<h6> Trastorno del Espectro Autista Nivel 3 (TEA 3):</h6>
+
+ <p><strong>
+ambién conocido como autismo de bajo funcionamiento. Las personas con TEA 3 tienen dificultades graves en la comunicación y en las interacciones sociales. Pueden presentar comportamientos repetitivos intensos y necesitar un alto nivel de apoyo en todos los aspectos de su vida.
+ </strong> </p>
+
+<h6> Es importante tener en cuenta que esta clasificación es una guía general y que cada persona con autismo es única, por lo que sus características y necesidades pueden variar. Un diagnóstico adecuado y una evaluación individualizada son fundamentales para comprender las necesidades específicas de una persona con autismo. </h6>
+
+
+        </div>
+
+        <div id="contenido-grado-riesgo" class="contenido-seccion">
+            <h1>Referencias</h1>
+            <h6>Esta es la página con los links de donde se saco toda la informacion.</h6>
+
+              <p><a href="https://autismounmundocontigo.org/" class="enlace-estilizado">Autismo un mundo contigo AC h.matamoros Tamps</a></p>
+<br>
+<br>
+              <p><a href="https://teleton.org/centro-autismo-teleton/?gad=1&gclid=Cj0KCQjw1rqkBhCTARIsAAHz7K3yAYBkkZxYHWwXbqABemBchrEf2dQwVcZ7S34nb7cv5m7L2YdE-woaAsz2EALw_wcB" class="enlace-estilizado">Teleton Mexico <a></p>
+<br>
+<br>
+              <p><a href="https://www.autismspeaks.org/que-es-el-autismo-espanol?gad=1&gclid=Cj0KCQjw1rqkBhCTARIsAAHz7K0h2mfTnqkuXgolK2yQplKiHXAQ36q4RLn6a1w1NGJI0fWEEbfRj2UaAtBUEALw_wcB" class="enlace-estilizado">Autism Speakers</a></p>
+<br>
+<br>
+              <p><a href="https://www.mayoclinic.org/es-es/diseases-conditions/autism-spectrum-disorder/symptoms-causes/syc-20352928" class="enlace-estilizado">Mayo Clinic</a></p>
+<br>
+<br>
+              <p><a href="https://autismo.org.es/el-autismo/que-es-el-autismo/" class="enlace-estilizado">confederación de autismo de Autismo de ESPANA </a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <div id="contenido-galeria" class="contenido-seccion">
+            <h1>Galería</h1>
+            <p><strong></strong> es la página de galería.</strong></p>
+             
+
+
+            <table border="5" bordercolor="pink"  cellpadding="40" bgcolor="pink" >     
+                <tr>
+                <th background="1.jpg"  width="180" height="90" ></th>
+                <th background="2.jpg"  width="180" height="90"></th>
+                <th background="3.jpg"  width="180" height="90"></th>
+                <th background="4.jpg"  width="180" height="90" ></th>
+                <th background="5.jpg"  width="180" height="90"></th>
+                <th background="6.jpg"  width="180" height="90"></th>
+                </tr>
+                <tr>
+                    <th background="7.jpg"  width="180" height="90" ></th>
+                    <th background="8.jpg"  width="180" height="90"></th>
+                    <th background="9.jpg"  width="180" height="90"></th>
+                    <th background="10.jpg"  width="180" height="90" ></th>
+                    <th background="11.jpg"  width="180" height="90"></th>
+                    <th background="12.jpg"  width="180" height="90"></th>
+                    </tr>
+                    <tr>
+                        <th background="13.jpg"  width="180" height="90" ></th>
+                        <th background="14.jpg"  width="180" height="90"></th>
+                        <th background="15.jpg"  width="180" height="90"></th>
+                        <th background="16.jpg"  width="180" height="90" ></th>
+                        <th background="17.jpg"  width="180" height="90"></th>
+                        <th background="18.jpg"  width="180" height="90"></th>
+                        </tr>
+                        <tr>
+                            <th background="19.jpg"  width="180" height="90" ></th>
+                            <th background="20.jpg"  width="180" height="90"></th>
+                            <th background="21.jpg"  width="180" height="90"></th>
+                            <th background="22.jpg"  width="180" height="90" ></th>
+                            <th background="23.jpg"  width="180" height="90"></th>
+                            <th background="24.jpg"  width="180" height="90"></th>
+                            </tr>
+
+                            <tr>
+                            <th background="25.jpg"  width="180" height="90" ></th>
+                            <th background="26.jpg"  width="180" height="90"></th>
+                            <th background="27.jpg"  width="180" height="90"></th>
+                            <th background="28.jpg"  width="180" height="90" ></th>
+                            <th background="29.jpg"  width="180" height="90"></th>
+                            <th background="30.jpg"  width="180" height="90"></th>
+                            </tr>
+
+                             <tr>
+                             <th background="31.jpg"  width="180" height="90" ></th>
+                             <th background="32.jpg"  width="180" height="90"></th>
+                             <th background="33.jpg"  width="180" height="90"></th>
+                             <th background="34.jpg"  width="180" height="90" ></th>
+                             <th background="35.jpg"  width="180" height="90"></th>
+                             <th background="36.jpg"  width="180" height="90"></th>
+                              </tr>
+                              <tr>
+                                <th background="37.jpg"  width="180" height="90" ></th>
+                                <th background="38.jpg"  width="180" height="90"></th>
+                                <th background="39.jpg"  width="180" height="90"></th>
+                                <th background="40.jpg"  width="180" height="90" ></th>
+                                <th background="41.jpg"  width="180" height="90"></th>
+                                <th background="42.jpg"  width="180" height="90"></th>
+                                </tr>
+    
+                                 <tr>
+                                 <th background="43.jpg"  width="180" height="90" ></th>
+                                 <th background="44.jpg"  width="180" height="90"></th>
+                                 <th background="45.jpg"  width="180" height="90"></th>
+                                 <th background="46.jpg"  width="180" height="90" ></th>
+                                 <th background="47.jpg"  width="180" height="90"></th>
+                                 <th background="48.jpg"  width="180" height="90"></th>
+                                  </tr>
+                                  <tr>
+                                    <th background="49.jpg"  width="180" height="90" ></th>
+                                    <th background="50.jpg"  width="180" height="90"></th>
+                                    <th background="51.jpg"  width="180" height="90" ></th>
+                                    <th background="52.jpg"  width="180" height="90"></th>
+                                    <th background="53.jpg"  width="180" height="90" ></th>
+                                    <th background="54.jpg"  width="180" height="90"></th>
+                                    </tr>
+        
+                                     
+
+        </table>
+        </div>
+        <div id="contenido-videos" class="contenido-seccion">
+            <h1>Videos</h1>
+            <p>Esta es la página de videos.</p>
+            <video width="560" height="315" controls>
+            <source src="videos/video1.mp4" type="video/mp4">
+            
+            </video>
+            <br>
+            <br>
+            <video width="560" height="315" controls>
+            <source src="videos/video2.mp4" type="video/mp4">
+            
+            </video>
+            <br>
+            <br>
+            <video width="560" height="315" controls>
+            <source src="videos/video3.mp4" type="video/mp4">
+            
+            </video>
+            <br>
+            <br>
+            <video width="560" height="315" controls>
+            <source src="videos/video4.mp4" type="video/mp4">
+            
+            </video>
+        </div>
+        <div id="contenido-contacto" class="contenido-seccion">
+      <h6>informacion DE contacto</h6>
+      <br>
+      <p>correo electronico:
+<br>
+        cherrysecret72@gmail.com
+      </p>
+      <p>celular
+        <br>
+        8682572829-----------------------------8683855811
+      </p>
+      <p>CBTIS 135 EMILIANO ZAPATA
+
+
+      </p>
+
+</div>
+
+
+    </div>
+</body>
+</html>
